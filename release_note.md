@@ -3,7 +3,7 @@ layout: page
 title: Release Note
 ---
 
-* version 3.0.0, 2016-01-xx
+* version 3.0.0, 2016-01-29
     * [The difference bitween version 3 and 2](diff.html)
 
 ---
