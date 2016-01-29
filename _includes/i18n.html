@@ -1,0 +1,32 @@
+<span id="lang-en"><img class="icon-flag" src="../images/icon-en.png" /><a href="/">English</a></span>
+<span id="lang-ja"><img class="icon-flag" src="../images/icon-ja.png" /><a href="/ja">Japanese</a></span>
+
+<script type="text/javascript">
+    var lang = null;
+    document.cookie.split('; ').forEach(function (elem) {
+        var entry = elem.split('=')
+        if (entry[0] == 'lang') {
+            lang = entry[1];
+            return;
+        }
+    });
+    if (lang === "en") {
+        document.getElementById('lang-ja').style.display = 'block';
+    } else if (lang === "ja") {
+        document.getElementById('lang-en').style.display = 'block';
+    } else {
+        document.getElementById('lang-ja').style.display = 'block';
+    }
+
+    // Change link path
+    if (lang === "ja") {
+        var elem = document.getElementById('site-title');
+        if (elem !== null) {
+            elem.href = '/ja';
+        }
+        var elem = document.getElementById('back-link');
+        if (elem !== null) {
+            elem.href = '/ja';
+        }
+    }
+</script>

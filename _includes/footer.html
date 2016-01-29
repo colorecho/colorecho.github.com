@@ -1,0 +1,46 @@
+<footer class="site-footer">
+
+    <div class="wrapper">
+
+        {% if false %} <h2 class="footer-heading">{{ site.title }}</h2>{% endif %}
+
+        <div class="footer-col-wrapper">
+            <div class="footer-col footer-col-1">
+                <ul class="contact-list">
+                    <li>{% include gems.html url=site.url-gems name="See on RubyGems" %}</li>
+                    <li>{% include github.html url=site.url-github name="See on GitHub" %}</li>
+                    <li>{% include i18n.html %}</li>
+                </ul>
+            </div>
+
+            <div class="footer-col footer-col-2">
+                <ul class="social-media-list">
+                    {% if false %}
+                    {% if site.github_username %}
+                    <li>
+                    {% include icon_github.html username=site.github_username %}
+                    </li>
+                    {% endif %}
+
+                    {% if site.twitter_username %}
+                    <li>
+                    {% include icon_twitter.html username=site.twitter_username %}
+                    </li>
+                    {% endif %}
+                    </ul>
+                    {% endif %}
+            </div>
+
+            <div class="footer-col footer-col-3">
+                <ul class="contact-list">
+                    <li>{% include icon_github.html username=site.github_username %}</li>
+                    <li>{% include email.html email=site.email %}</li>
+                    <li>{% include license.html url=site.url-license name="License" %}</li>
+                </ul>
+            </div>
+
+        </div>
+
+    </div>
+
+</footer>

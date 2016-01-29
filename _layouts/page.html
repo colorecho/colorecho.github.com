@@ -1,0 +1,26 @@
+---
+layout: default
+---
+<article class="post">
+
+  <header class="post-header">
+    <h1 class="post-title">{{ page.title }}</h1>
+  </header>
+
+  <div class="post-content">
+    {{ content }}
+  </div>
+
+  <a id="back-link" href="/">Back</a>
+
+</article>
+
+<script type="text/javascript">
+    document.addEventListener(
+        'DOMContentLoaded',
+        function () {
+            document.getElementById("back-link").onclick = function () { history.back(); }
+        },
+        false
+    );
+</script>
