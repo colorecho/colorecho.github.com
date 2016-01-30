@@ -105,7 +105,7 @@ $ tail -f /tmp/foo.log | colorecho -w --stripe
 
 {% include ref/method.html name="-R, --refresh" %}
 入力に対し常に可能な限りシーケンスコードを取り除きます。
-ただし`f`,`-b`,`-t`,`-p`オプションなど、なんらかの装飾の指定を行っている場合にしか機能しません。
+ただし`-f`,`-b`,`-t`,`-p`オプションなど、なんらかの装飾の指定を行っている場合にしか機能しません。
 
 {% include ref/small_header.html name="例" %}
 {% highlight bash %}

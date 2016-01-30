@@ -3,7 +3,7 @@ layout: page
 title: リリースノート
 ---
 
-* version 3.0.0, 2016-01-xx
+* version 3.0.0, 2016-01-29
     * [`version 3.0.0`の変更点はこちらをご覧ください](diff.html)
 
 ---
