@@ -10,7 +10,7 @@ title: Ruby版 color_echo for v3.1.0 and over
 `require 'color_echo'`もしくは`require 'color_echo/get'`で`color_echo`を読み込むと`CE`というモジュールが組み込まれます。
 ruby から`color_echo`を使用する場合はオブジェクトを作る必要はありません。`color_echo`の機能はすべてモジュール関数で実装されています。   
 
-例えば`CE.fg(:cyan)`をコールすると組み込みの Kernel module の以下の3つモジュール関数`puts`,`p`,`print`,`printf`,`putc`のコマンドライン出力が`cyan`に変わります。    
+例えば`CE.fg(:cyan)`をコールすると組み込みの Kernel module の以下の5つモジュール関数`puts`,`p`,`print`,`printf`,`putc`のコマンドライン出力が`cyan`に変わります。    
 
 ※ `version 3.1.0`から装飾の適用範囲に`printf`,`putc`が加わりました。
 
