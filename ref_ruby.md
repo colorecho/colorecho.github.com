@@ -1,9 +1,10 @@
 ---
 layout: page
-title: Ruby library Reference for v3.0.0 and over
+title: Ruby library Reference for v3.1.0 and over
 ---
 * [Two modes](#descript)
 * [Reference of module functions](#ref-module-functions)
+
 
 {% include h_section.html name="Two modes" id="descript" %}
 `CE` module will be read by `require 'color_echo'` or `require 'color_echo/get'`.
@@ -11,8 +12,9 @@ You might not generate instance because `CE` is not a class, `CE` is a module.
 All of function of `color_echo` are module funtion.
 
 For exmaple, when you loaded `require 'color_echo'` and you called `CE.fg(:cyan)`,
-standard out of Kernel module functions that `p`,`print`,`puts` will be colored with `cyan`.
+standard out of Kernel module functions followings `puts`,`p`,`print`,`printf`,`putc` are colored with `cyan`.
 
+Hint: `printf`,`putc` were added  in `version 3.1.0`.
 
 {% include ref/small_header.html name="for example " %}
 {% highlight ruby %}
@@ -31,9 +33,9 @@ puts "Hello World !!"
 {% include ref/small_header.html name="result " %}
 ![screen shot](/images/ref_ruby/ss01.png)
 
-If you would not like to be overwritten `p`,`print`,`puts`, you might load `require 'color_echo/get'` instead of `require 'color_echo'`.
+If you would not like to be overwritten `Kernel.puts`,`Kernel.p`,`Kernel.print`,`Kernel.printf`,`Kernel.putc`, you might load `require 'color_echo/get'` instead of `require 'color_echo'`.
 
-When you load by `require 'color_echo/get'`, `p`,`print`,`puts` will not be overrwritten.
+When you load by `require 'color_echo/get'`, `Kernel.puts`,`Kernel.p`,`Kernel.print`,`Kernel.printf`,`Kernel.putc` will not be overrwritten.
 You would like to get String that be decorated, you might use `CE.get("foo")`.
 
 {% include ref/small_header.html name="for example " %}
@@ -110,7 +112,7 @@ Changes foreground color to specified value by `foreground`.
 
 Alias of this module function is `fg`.
 
-* symbol list that can be specified in `foreground`
+* symbol list that can to specify in `foreground`
     * :black
     * :red
     * :green
@@ -145,7 +147,7 @@ Changes background color to specified value by `background_color`.
 
 Alias of this module function is `bg`.
 
-* symbol list that can be specified in `background_color`
+* symbol list that can to specify in `background_color`
     * :black
     * :red
     * :green
@@ -174,7 +176,7 @@ You can see the list of value of text_attribute by colorecho -s.
 
 Alias of this module function is `tx`.
 
-* symbol list that can be specified in `text_attribute`
+* symbol list that can to specify in `text_attribute`
     * :bold ... Bold or increased intensity
     * :underline ... Underline: Single
     * :blink ... Blink: Slow
@@ -215,7 +217,7 @@ Default is `:all`, So all of values will be reset.
 
 Alias of this module function are `off`, `disable`.
 
-* symbol list that can be specified in `scope`
+* symbol list that can to specify in `scope`
     * :all ... resets all of values
     * :fg ... resets value of foregroud color by `CE.ch_fg`
     * :bg ... resets value of background color by `CE.ch_bg`
@@ -269,7 +271,7 @@ puts "fourth"
 </ul>
 Tries to delete sequence code of given input.
 
-* symbol list that can be specified in `scope`
+* symbol list that can to specify in `scope`
     * :all ... always tries to delete sequence code
     * :prematch ... tries to delete sequence code when matches -p option’s patern
 
@@ -324,3 +326,32 @@ All of specification for decoration will be reset after `CE.get` was called.
 
 When you don't call `CE.get`, this module function is meaningless.
 
+
+{% include ref/method.html name="CE.withdraw(target [,...])" %}
+<ul class="param">
+{% include ref/param.html name="target" type="symbol" %}
+{% include ref/return.html type="array" %}
+</ul>
+Dose not assign preference of decaration toward the module functions that be specified in argument.
+For example executed `CE.withdraw(:printf)`, output of `printf` won't be decorated.
+You can specify values at the same time by comma.
+The return value is array of symbol that succeeded to withdraw them.
+
+This module function was added in `version 3.1.0`.
+
+* symbol list that can to specify in `target`
+    * :puts ... withdraw `Kernel.puts` decoration
+    * :p ... withdraw `Kernel.p` decoration
+    * :print ... withdraw `Kernel.print` decoration
+    * :printf ... withdraw `Kernel.printf` decoration
+    * :putc ... withdraw `Kernel.putc` decoration
+
+
+{% include ref/method.html name="CE.get_assigned" %}
+<ul class="param">
+{% include ref/return.html type="array" %}
+</ul>
+Returns array of symbol of module functions that assigned preference of decoration.
+It will returns `[:puts, :p, :print, :printf, :putc]` When you didn't call `CE.withdraw`.
+
+This module function was added in `version 3.1.0`.

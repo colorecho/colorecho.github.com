@@ -3,26 +3,31 @@ layout: page
 title: Release Note
 ---
 
+* version 3.1.0, 2016-02-04
+    * Preference of decoration will be work in Kernel.printf, Kernel.putc.
+    * Added new module functions -> CE.withdraw, CE.get_assigned. Please take a look at the reference.
+    * [Fixed the problem](https://github.com/khotta/color_echo/issues/3)
+
 * version 3.0.0, 2016-01-29
     * [The difference bitween version 3 and 2](diff.html)
 
 ---
 
 * v2.0.4, 2016-01-06
-    * Fixed problem as below; https://github.com/khotta/color_echo/issues/2
+    * [Fixed the problem](https://github.com/khotta/color_echo/issues/2)
 
 * v2.0.3, 2016-01-06
     * rebuild by old gem, because latest gem can't use symbolic link in bin/.
 
 * v2.0.2, 2016-01-06
-    * Fixed problem as below; https://github.com/khotta/color_echo/issues/1
+    * [Fixed the problem](https://github.com/khotta/color_echo/issues/1)
     * This version has problem of fail to execute colorecho command, Please use v2.0.3 and over.
 
 * v2.0.1, 2015-08-21
     * Fixed bug that highlight of line is incorrect in commandline interface.
 
 * v2.0.0, 2015-05-20
-    * Add new method -> CE::hitline, CE.enable_refresh, CE.disable_refresh, Please check the reference.
+    * Added new module functions -> CE::hitline, CE.enable_refresh, CE.disable_refresh. Please check the reference.
     * Can to select new parameter ':hitline' in CE.reset.
     * Flushes any buffered data when output data to STDOUT.
     * Fixed bug, When the input was included invalid encoding.

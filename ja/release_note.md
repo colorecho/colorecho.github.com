@@ -3,6 +3,11 @@ layout: page
 title: リリースノート
 ---
 
+* version 3.1.0, 2016-02-04
+    * 装飾を適用するメソッドに Kernel.printf, Kernel.putc を追加しました。
+    * 次の新しいメソッドを追加しました -> CE.withdraw, CE.get_assigned
+    * [以下の問題を修正しました](https://github.com/khotta/color_echo/issues/3)
+
 * version 3.0.0, 2016-01-29
     * [`version 3.0.0`の変更点はこちらをご覧ください](diff.html)
 
@@ -22,7 +27,7 @@ title: リリースノート
     * コマンドラインインターフェースで複数行の入力を与えられたときマッチした行のハイライトが正しくつかない問題を修正しました。
 
 * version 2.0.0, 2015-05-20
-    * 次の新しいメソッドを追加しました -> CE::hitline, CE.enable_refresh, CE.disable_refresh
+    * 次の新しいメソッドを追加しました -> CE.hitline, CE.enable_refresh, CE.disable_refresh
     * CE.reset のスコープに CE.pickupで指定したパターンとマッチした行に適用するシーケンスコードをリセットする ':hitline' を追加しました。
     * colorechoコマンドを複数パイプで渡すと出力がバッファに溜まりリアルタイムで出力されない問題を解消しました。
     * 正しくないエンコーディングを検知した際に対話モードが終了してしまう問題を解消しました。

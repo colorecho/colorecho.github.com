@@ -1,15 +1,18 @@
 ---
 layout: page
-title: Ruby版 color_echo for v3.0.0 and over
+title: Ruby版 color_echo for v3.1.0 and over
 ---
 * [2つのモード](#descript)
 * [モジュール関数リファレンス](#ref-module-functions)
 
 {% include h_section.html name="2つのモード" id="descript" %}
 
-`require 'color_echo'`もしくは`require 'color_echo/get'`で`color_echo`を読み込むと`CE`というモジュールが組み込まれます。ruby から`color_echo`を使用する場合はオブジェクトを作る必要はありません。`color_echo`の機能はすべてモジュール関数で実装されています。   
+`require 'color_echo'`もしくは`require 'color_echo/get'`で`color_echo`を読み込むと`CE`というモジュールが組み込まれます。
+ruby から`color_echo`を使用する場合はオブジェクトを作る必要はありません。`color_echo`の機能はすべてモジュール関数で実装されています。   
 
-例えば`CE.fg(:cyan)`をコールすると組み込みの Kernel module の以下の3つモジュール関数`Kernel.p, Kernel.puts, Kernel.print`のコマンドライン出力が`cyan`に変わります。    
+例えば`CE.fg(:cyan)`をコールすると組み込みの Kernel module の以下の3つモジュール関数`puts`,`p`,`print`,`printf`,`putc`のコマンドライン出力が`cyan`に変わります。    
+
+※ `version 3.1.0`から装飾の適用範囲に`printf`,`putc`が加わりました。
 
 {% include ref/small_header.html name="例" %}
 {% highlight ruby %}
@@ -30,7 +33,7 @@ puts "Hello World !!"
 
 Kernel module のモジュール関数がオーバライドされ自動で装飾されることを望まない場合は`require 'color_echo'`ではなく、`require 'color_echo/get'`で読み込んでください。   
 
-`require "color_echo/get"`で読み込むと`color_echo`は`Kernel.p, Kernel.puts, Kernel.print`の出力を装飾しません。装飾したテキストを取得するには`CE.get("some message")`を使います。   
+`require "color_echo/get"`で読み込むと`color_echo`は`Kernel.puts`,`Kernel.p`,`Kernel.print`,`Kernel.printf`,`Kernel.putc`の出力を装飾しません。装飾したテキストを取得するには`CE.get("some message")`を使います。   
 
 {% include ref/small_header.html name="例" %}
 {% highlight ruby %}
@@ -289,3 +292,33 @@ puts "fourth"
 </ul>
 `CE.get` を呼び出すとそれまで設定した装飾に関する指定がすべてクリアされます。デフォルトはこの挙動です。
 `CE.get` を使用しない場合は意味のないメソッドです。
+
+
+{% include ref/method.html name="CE.withdraw(target [,...])" %}
+<ul class="param">
+{% include ref/param.html name="target" type="symbol" %}
+{% include ref/return.html type="array" %}
+</ul>
+引数に指定したメソッドに対して装飾を適用しません。
+例えば`CE.withdraw(:printf)`とすれば`printf`の出力は装飾されません。
+カンマ区切りで一度に複数指定できます。
+返り値は解除に成功したシンボルの配列です。
+
+`version 3.1.0`から追加されたメソッドです。
+
+* パラメータ`target`で指定できるシンボル一覧
+    * :puts ... `Kernel.puts`への装飾を解除します。
+    * :p ... `Kernel.p`への装飾を解除します。
+    * :print ... `Kernel.print`への装飾を解除します。
+    * :printf ... `Kernel.printf`への装飾を解除します。
+    * :putc ... `Kernel.putc`への装飾を解除します。
+
+
+{% include ref/method.html name="CE.get_assigned" %}
+<ul class="param">
+{% include ref/return.html type="array" %}
+</ul>
+装飾を適用する Kernel module のモジュール関数のシンボルの配列を返します。
+減点方式なのでなにも`CE.withdraw`していないときは`[:puts, :p, :print, :printf, :putc]`が返り値です。
+
+`version 3.1.0`から追加されたメソッドです。
