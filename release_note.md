@@ -4,7 +4,7 @@ title: Release Note
 ---
 
 * version 3.1.0, 2016-02-04
-    * Preference of decoration will be work in Kernel.printf, Kernel.putc.
+    * Preference of decoration will be work in Kernel.#printf, Kernel.#putc.
     * Added new module functions -> CE.withdraw, CE.get_assigned. Please take a look at the reference.
     * [Fixed the problem](https://github.com/khotta/color_echo/issues/3)
 

@@ -4,7 +4,7 @@ title: リリースノート
 ---
 
 * version 3.1.0, 2016-02-04
-    * 装飾を適用するメソッドに Kernel.printf, Kernel.putc を追加しました。
+    * 装飾を適用するメソッドに Kernel.#printf, Kernel.#putc を追加しました。
     * 次の新しいメソッドを追加しました -> CE.withdraw, CE.get_assigned
     * [以下の問題を修正しました](https://github.com/khotta/color_echo/issues/3)
 

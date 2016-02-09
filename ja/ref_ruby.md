@@ -33,7 +33,7 @@ puts "Hello World !!"
 
 Kernel module のモジュール関数がオーバライドされ自動で装飾されることを望まない場合は`require 'color_echo'`ではなく、`require 'color_echo/get'`で読み込んでください。   
 
-`require "color_echo/get"`で読み込むと`color_echo`は`Kernel.puts`,`Kernel.p`,`Kernel.print`,`Kernel.printf`,`Kernel.putc`の出力を装飾しません。装飾したテキストを取得するには`CE.get("some message")`を使います。   
+`require "color_echo/get"`で読み込むと`color_echo`は`Kernel.#puts`,`Kernel.#p`,`Kernel.#print`,`Kernel.#printf`,`Kernel.#putc`の出力を装飾しません。装飾したテキストを取得するには`CE.get("some message")`を使います。   
 
 {% include ref/small_header.html name="例" %}
 {% highlight ruby %}
@@ -307,11 +307,11 @@ puts "fourth"
 `version 3.1.0`から追加されたメソッドです。
 
 * パラメータ`target`で指定できるシンボル一覧
-    * :puts ... `Kernel.puts`への装飾を解除します。
-    * :p ... `Kernel.p`への装飾を解除します。
-    * :print ... `Kernel.print`への装飾を解除します。
-    * :printf ... `Kernel.printf`への装飾を解除します。
-    * :putc ... `Kernel.putc`への装飾を解除します。
+    * :puts ... `Kernel.#puts`への装飾を解除します。
+    * :p ... `Kernel.#p`への装飾を解除します。
+    * :print ... `Kernel.#print`への装飾を解除します。
+    * :printf ... `Kernel.#printf`への装飾を解除します。
+    * :putc ... `Kernel.#putc`への装飾を解除します。
 
 
 {% include ref/method.html name="CE.get_assigned" %}

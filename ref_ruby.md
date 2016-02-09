@@ -33,9 +33,9 @@ puts "Hello World !!"
 {% include ref/small_header.html name="result " %}
 ![screen shot](/images/ref_ruby/ss01.png)
 
-If you would not like to be overwritten `Kernel.puts`,`Kernel.p`,`Kernel.print`,`Kernel.printf`,`Kernel.putc`, you might load `require 'color_echo/get'` instead of `require 'color_echo'`.
+If you would not like to be overwritten `Kernel.#puts`,`Kernel.#p`,`Kernel.#print`,`Kernel.#printf`,`Kernel.#putc`, you might load `require 'color_echo/get'` instead of `require 'color_echo'`.
 
-When you load by `require 'color_echo/get'`, `Kernel.puts`,`Kernel.p`,`Kernel.print`,`Kernel.printf`,`Kernel.putc` will not be overrwritten.
+When you load by `require 'color_echo/get'`, `Kernel.#puts`,`Kernel.#p`,`Kernel.#print`,`Kernel.#printf`,`Kernel.#putc` will not be overrwritten.
 You would like to get String that be decorated, you might use `CE.get("foo")`.
 
 {% include ref/small_header.html name="for example " %}
@@ -340,11 +340,11 @@ The return value is array of symbol that succeeded to withdraw them.
 This module function was added in `version 3.1.0`.
 
 * symbol list that can to specify in `target`
-    * :puts ... withdraw `Kernel.puts` decoration
-    * :p ... withdraw `Kernel.p` decoration
-    * :print ... withdraw `Kernel.print` decoration
-    * :printf ... withdraw `Kernel.printf` decoration
-    * :putc ... withdraw `Kernel.putc` decoration
+    * :puts ... withdraw `Kernel.#puts` decoration
+    * :p ... withdraw `Kernel.#p` decoration
+    * :print ... withdraw `Kernel.#print` decoration
+    * :printf ... withdraw `Kernel.#printf` decoration
+    * :putc ... withdraw `Kernel.#putc` decoration
 
 
 {% include ref/method.html name="CE.get_assigned" %}
