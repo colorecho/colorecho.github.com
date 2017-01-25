@@ -9,7 +9,7 @@
 title: Color Echo
 email: khotta116@gmail.com
 baseurl: "" # the subpath of your site, e.g. /blog
-url: "http://colorecho.net" # the base hostname & protocol for your site
+url: "http://colorecho.github.io" # the base hostname & protocol for your site
 url-gems: "https://rubygems.org/gems/color_echo"
 url-github: "https://github.com/khotta/color_echo"
 url-license: "https://github.com/khotta/color_echo/blob/master/LICENSE.txt"
